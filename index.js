@@ -116,7 +116,7 @@ if (slotstep && slotstep > 0 && slotstep < 8 && parseFloat(slotstep) == parseInt
         res.say("Negative numbers? That's impressive, but I'm not sure what to do with that. let's try again, but this time, give me a positive step number between 1 and 7. Or say continue to let me take you where I want to go!").shouldEndSession(false);
         res.session('step', persstep);
       } else if (needinteger){
-        res.say("Decimals? Really? Let's try again, but this time, please give me a step number using whole integers, and only whole integers, or say continue to go on to the next logical step.").shouldEndSession(false);
+        res.say("Decimals? Really? Let's try again, but this time, please give me a step number using whole numbers, and only whole numbers, or say continue to go on to the next logical step.").shouldEndSession(false);
         res.session('step', persstep);
     } else if (garbage){
        if (persstep > 0 && persstep < 8) {
@@ -128,7 +128,7 @@ if (slotstep && slotstep > 0 && slotstep < 8 && parseFloat(slotstep) == parseInt
          res.session('step', 1);
          }
       } else {
-        res.say("Step " + step + ". " + steps[step] + " When you're ready for the next step, say continue, or say the step number you'd like to jump to.").shouldEndSession(false);
+        res.say("Step " + step + ". " + steps[step] + " When you're ready for the next step, say continue, or tell me the step number you'd like to hear.").shouldEndSession(false);
         step += 1;
         res.session('step', step);
         }
