@@ -32,7 +32,7 @@ app.set("view engine", "ejs");
 //=========================================================================================================================================
 var steps = {
   8 : 'Hi! I can teach you how to make your own modeling clay out of common kitchen materials! Just say continue to begin! ',
-  1 : 'to begin, you\'ll need to collect the following supplies. A cardboard box, could be a cereal box, white copy paper, scissors, tape, aluminum foil, and a thumbtack or other sharp thin pin-like object.',
+  1 : 'collect the following ingredients. 3 and a half cups of all purpose flour, 1 half cup of salt, 1 tablespoon cream of tarter, 2 and a half tablespoons of oil, and 2 cups of water. You\'ll also need a large mixing bowl, a pot to boil water, a wooden spoon, and a cookie sheet.',
   2 : 'Cut a strip of white paper the size of the end of your box and tape it inside. ',
   3 : 'seal all the seams with strips of tape and aluminum foil to make it light tight. ',
   4 : 'Use the scissors to cut two holes on the far left and right sides of the box panel opposite the white paper.',
