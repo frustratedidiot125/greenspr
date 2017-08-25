@@ -32,11 +32,11 @@ app.set("view engine", "ejs");
 //=========================================================================================================================================
 var steps = {
   8 : 'Hi! I can teach you how to make your own modeling clay out of common kitchen materials! Just say continue to begin! ',
-  1 : 'collect the following ingredients. 3 and a half cups of all purpose flour, 1 half cup of salt, 1 tablespoon cream of tarter, 2 and a half tablespoons of oil, and 2 cups of water. You\'ll also need a large mixing bowl, a pot to boil water, a wooden spoon, and a cookie sheet.',
-  2 : 'Cut a strip of white paper the size of the end of your box and tape it inside. ',
-  3 : 'seal all the seams with strips of tape and aluminum foil to make it light tight. ',
-  4 : 'Use the scissors to cut two holes on the far left and right sides of the box panel opposite the white paper.',
-  5 : 'Cover one of the holes with foil and tape it in place. ',
+  1 : 'collect the following ingredients. 3 and a half cups of all purpose flour, 1 half cup of salt, 1 tablespoon cream of tartar, 2 and a half tablespoons of oil, and 2 cups of water. You\'ll also need a large mixing bowl, a pot to boil water, a wooden spoon, and a cookie sheet.  You can grab some food coloring and vanilla extract if you would like to dye and scent the clay.',
+  2 : 'Pour the water into the pot.  Optionally add a couple drops of food coloring for color, and start to bring the water to a boil.',
+  3 : 'whilst waiting for the water to boil, add the flour, salt, and tartar to the mixing bowl, and mix thoroughly with the wooden spoon.',
+  4 : 'remove the boiling pot water from heat, and carefully add in the oil and mix them together.',
+  5 : 'carefully pour the mixture from the pot into the mixing bowl. Mix thoroughly using the wooden spoon, And leave the mixture to cool.',
   6 : 'Use the thumbtack, or similar thin, pointy ended object to Punch a pinhole through the foil.',
   7 : 'At this stage, the projector you\'ve built should be ready to use! You can wait for a solar eclipse, or you can test it out on any sunny day. Just go outside with your trusty contraption, turn your back to the Sun, line up the box with your shadow, and look through the big hole.  You should be able to see a very small, moderately bright, inverted image of the sun, in sharp focus, projected on the white paper screen on the other end of the inside of the box. If you don\'t see anything,  try moving the box or yourself around, and once you are properly lined up, the image should appear. Cool, eh? Happy sciencing!'
   };
