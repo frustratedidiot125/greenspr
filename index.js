@@ -39,7 +39,7 @@ var steps = {
   5 : 'carefully pour the mixture from the pot into the mixing bowl. Mix thoroughly using the wooden spoon, optionally add a few drops of vanilla extract for aroma, and leave the mixture to cool.',
   6 : 'once the mixture is cool enough to handle, transfer it to the cookie sheet and begin kneading it until the consistency is similar to that of thick putty.',
   7 : 'Your modelling clay should now be ready to use! If you don\'t need it right away, just add a sprinkling of water and place the clay into an airtight container for storage. Okay! You\'re all set! Enjoy!'
-  };.
+  };
   
 
 
