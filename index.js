@@ -37,9 +37,9 @@ var steps = {
   3 : 'whilst waiting for the water to boil, add the flour, salt, and tartar to the mixing bowl, and mix thoroughly with the wooden spoon.',
   4 : 'remove the boiling pot water from heat, and carefully add in the oil and mix them together.',
   5 : 'carefully pour the mixture from the pot into the mixing bowl. Mix thoroughly using the wooden spoon, optionally add a few drops of vanilla extract for aroma, and leave the mixture to cool.',
-  6 : 'once the mixture is cool enough to handle, transfer it to the cookies sheet and begin meetintransfer it to the cookies sheet and begin kneading until the consistency is similar to that of tbick putty.',
-  7 : 'At this stage, the projector you\'ve built should be ready to use! You can wait for a solar eclipse, or you can test it out on any sunny day. Just go outside with your trusty contraption, turn your back to the Sun, line up the box with your shadow, and look through the big hole.  You should be able to see a very small, moderately bright, inverted image of the sun, in sharp focus, projected on the white paper screen on the other end of the inside of the box. If you don\'t see anything,  try moving the box or yourself around, and once you are properly lined up, the image should appear. Cool, eh? Happy sciencing!'
-  };
+  6 : 'once the mixture is cool enough to handle, transfer it to the cookie sheet and begin kneading it until the consistency is similar to that of thick putty.',
+  7 : 'Your modelling clay should now be ready to use! If you don\'t need it right away, just add a sprinkling of water and place the clay into an airtight container for storage. Okay! You\'re all set! Enjoy!'
+  };.
   
 
 
@@ -100,7 +100,7 @@ if (slotstep && slotstep > 0 && slotstep < 8 && parseFloat(slotstep) == parseInt
       res.say("Hey, If you want to review a step, just say step followed by the step number you'd like to hear. You can say continue to start over.").shouldEndSession(false);
     } else if (step == 7) { 
        res.session('step', 1);
-       res.say("Okay, one last step, step " + step + ". " + steps[step] +  " Goodbye!").shouldEndSession(true);
+       res.say("Okay, last step " + step + ". " + steps[step] +  " Goodbye!").shouldEndSession(true);
     } else if (step == 8) {
       res.say(steps[step]).shouldEndSession(false);
       res.session('step', 1);
@@ -111,12 +111,12 @@ if (slotstep && slotstep > 0 && slotstep < 8 && parseFloat(slotstep) == parseInt
            persstep = 1; 
                     }
       res.session('step', persstep)
-      res.say("Whoa there, there are only 7 steps to this skill. Please choose a step between 1 and 7, or say continue and I'll start from where I think we left off.").shouldEndSession(false);
+      res.say("Whoa, there are only 7 steps to this skill. Please choose a step between 1 and 7, or say continue and I'll start from where I think we left off.").shouldEndSession(false);
     } else if (screwingwithme){
-        res.say("Really? Negative numbers? You must be messing with me.  C'mon, let's try again, but this time, let's use positive integers between 1 and 7 when specifying steps. Or say continue. Darned jokers. It's a good thing I have an accommodating sense of humor!").shouldEndSession(false);
+        res.say("Negative numbers? That's impressive, but I'm not sure what to do with that. let's try again, but this time, give me a positive step number between 1 and 7. Or say continue to let me take you where I want to go!").shouldEndSession(false);
         res.session('step', persstep);
       } else if (needinteger){
-        res.say("Really? Decimals? The steps aren't that long! I'd be offended if I wasn't so amused. And impressed! Seriously, though, Do please give me a step number this time using whole integers, and only whole integers, or say continue to go on to the next appropriate step.").shouldEndSession(false);
+        res.say("Decimals? Really? Let's try again, but this time, please give me a step number using whole integers, and only whole integers, or say continue to go on to the next logical step.").shouldEndSession(false);
         res.session('step', persstep);
     } else if (garbage){
        if (persstep > 0 && persstep < 8) {
@@ -128,7 +128,7 @@ if (slotstep && slotstep > 0 && slotstep < 8 && parseFloat(slotstep) == parseInt
          res.session('step', 1);
          }
       } else {
-        res.say("Step " + step + ". " + steps[step] + " When you're ready for the next step, say continue, or say step and the step number you wish to jump to.").shouldEndSession(false);
+        res.say("Step " + step + ". " + steps[step] + " When you're ready for the next step, say continue, or say the step number you'd like to jump to.").shouldEndSession(false);
         step += 1;
         res.session('step', step);
         }
@@ -164,12 +164,12 @@ alexaApp.intent('StepContinue', {
       res.say("Hey, If you want to review a step, just say step followed by the step number you'd like to hear.").shouldEndSession(false);
     } else if (step == 7) { 
        res.session('step', 1);
-       res.say("Okay, one last step, step " + step + ". " + steps[step] +  " Goodbye and Good luck!").shouldEndSession(true);
+       res.say("Okay, last step, step " + step + ". " + steps[step] +  " Goodbye and Good luck!").shouldEndSession(true);
     } else if (step == 8) {
       res.say(steps[step]).shouldEndSession(false);
       res.session('step', 1);
     } else {
-        res.say("Step " + step + ". " + steps[step] + " When you're ready for the next step, say continue, or say step and the step number you wish to jump to.").shouldEndSession(false);
+        res.say("Step " + step + ". " + steps[step] + " When you're ready for the next step, say continue.").shouldEndSession(false);
         step += 1;
         res.session('step', step);
         }
@@ -183,7 +183,7 @@ alexaApp.intent("AMAZON.HelpIntent", {
   "slots": {} },
   function(request, response) {
     
-var HELP_MESSAGE = "Say continue to proceed to the next instructive step, or specify a step by sayibg saying step followed by a step number between 1 and 7.  Follow the instructions and further prompts or say stop to exit at any time. And remember, do NOT look directly at the sun!";
+var HELP_MESSAGE = "Say continue to proceed to the next instructive step, or specify a step by saying step followed by a step number between 1 and 7.  Follow the instructions and further prompts or say stop to exit at any time. And remember, have fun!";
     response.say(HELP_MESSAGE).shouldEndSession(false);
   }
  );
