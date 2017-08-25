@@ -47,7 +47,7 @@ alexaApp.launch(function(req, res) {
 
   
  // res.session('persstep', 0); //maybe we want to put that or some variation of this somewhere else like in the intent. We also never  figured out the repeat function but the hell with that.
-  var prompt = "Hi! I can teach you how to make your own modeling clay out of common kitchen materials! Just say continue to begin! if we've done this before, I'll try to resume where we last left off.  you can also say the number of any step from 1 to 7 you'd like to go to, and I'll start from there.";
+  var prompt = "Hi! I can teach you how to make your own modeling clay out of common kitchen materials! Just say continue to begin! if we've done this before, I'll try to resume where we last left off.  you can also say the word step, followed by the number of any step from 1 to 7 you'd like to go to, and I'll start from there.";
   res.say(prompt).reprompt(prompt).shouldEndSession(false);
 });
 
@@ -111,24 +111,24 @@ if (slotstep && slotstep > 0 && slotstep < 8 && parseFloat(slotstep) == parseInt
            persstep = 1; 
                     }
       res.session('step', persstep)
-      res.say("Whoa, there are only 7 steps to this skill. Please choose a step between 1 and 7, or say continue and I'll start from where I think we left off.").shouldEndSession(false);
+      res.say("Whoa, there are only 7 steps to this skill. Please say step and choose a step between 1 and 7, or say continue and I'll start from where I think we left off.").shouldEndSession(false);
     } else if (screwingwithme){
-        res.say("Negative numbers? That's impressive, but I'm not sure what to do with that. let's try again, but this time, give me a positive step number between 1 and 7. Or say continue to let me take you where I want to go!").shouldEndSession(false);
+        res.say("Negative numbers? That's impressive, but I'm not sure what to do with that. let's try again, but this time, give me the word step followed by a positive step number between 1 and 7. Or say continue to let me take you where I want to go!").shouldEndSession(false);
         res.session('step', persstep);
       } else if (needinteger){
-        res.say("Decimals? Really? Let's try again, but this time, please give me a step number using whole numbers, and only whole numbers, or say continue to go on to the next logical step.").shouldEndSession(false);
+        res.say("Decimals? Really? Let's try again, but this time, please give me the word step followed by a step number using whole numbers, and only whole numbers, or say continue to go on to the next logical step.").shouldEndSession(false);
         res.session('step', persstep);
     } else if (garbage){
        if (persstep > 0 && persstep < 8) {
         // persstep += 1;
-         res.say("I'm sorry, I did not understand what you were trying to say there. Please choose a step number between 1 and 7, or say continue and I'll start from where I think we left off.").shouldEndSession(false);
+         res.say("I'm sorry, I did not understand what you were trying to say there. Please say the word step and choose a step number between 1 and 7, or say continue and I'll start from where I think we left off.").shouldEndSession(false);
          res.session('step', persstep);
          } else { 
-         res.say("I'm sorry, I did not understand what you were trying to say there, Please try again. Choose a step number between 1 and 7, or say begin and I'll start from the beginning.").shouldEndSession(false);
+         res.say("I'm sorry, I did not understand what you were trying to say there, Please try again. Say step and choose a step number between 1 and 7, or say begin and I'll start from the beginning.").shouldEndSession(false);
          res.session('step', 1);
          }
       } else {
-        res.say("Step " + step + ". " + steps[step] + " When you're ready for the next step, say continue, or tell me the step number you'd like to hear.").shouldEndSession(false);
+        res.say("Step " + step + ". " + steps[step] + " When you're ready for the next step, say continue, or say step and tell me the step number you'd like to hear.").shouldEndSession(false);
         step += 1;
         res.session('step', step);
         }
