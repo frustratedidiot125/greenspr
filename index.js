@@ -31,7 +31,7 @@ app.set("view engine", "ejs");
 //TODO: The items below this comment need your attention.
 //=========================================================================================================================================
 var steps = {
-  8 : 'Hi there! I can tell you how to build an eclipse projection box so you can safely view a solar eclipse without ever staring directly at the sun! Just say begin to begin, Or say stop to exit.',
+  8 : 'Hi! I can teach you how to make your own modeling clay out of common kitchen materials! Just say continue to begin! ',
   1 : 'to begin, you\'ll need to collect the following supplies. A cardboard box, could be a cereal box, white copy paper, scissors, tape, aluminum foil, and a thumbtack or other sharp thin pin-like object.',
   2 : 'Cut a strip of white paper the size of the end of your box and tape it inside. ',
   3 : 'seal all the seams with strips of tape and aluminum foil to make it light tight. ',
@@ -47,7 +47,7 @@ alexaApp.launch(function(req, res) {
 
   
  // res.session('persstep', 0); //maybe we want to put that or some variation of this somewhere else like in the intent. We also never  figured out the repeat function but the hell with that.
-  var prompt = "Hi there! I can tell you how to build an eclipse projection box so you can view a solar eclipse safely, and without ever staring directly at the sun! Just say begin, and I'll start with step 1, or, if we've done this before, I'll try to begin where we last left off. Alternatively, you can say the number of any step from 1 to 7 you'd like to review, and I'll start from there instead. After each instruction, you can say continue to go on to the next step, or stop to exit.  ";
+  var prompt = "Hi! I can teach you how to make your own modeling clay out of common kitchen materials! Just say continue to begin! if we've done this before, I'll try to resume where we last left off.  you can also say the number of any step from 1 to 7 you'd like to go to, and I'll start from there.";
   res.say(prompt).reprompt(prompt).shouldEndSession(false);
 });
 
