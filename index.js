@@ -56,8 +56,8 @@ alexaApp.intent('StepIntent', {
     "utterances": ["continue", "next step", "begin", "{stepno}", "step {stepno}", "go to {stepno}", "go to step {stepno}", "read step {stepno}", "begin with step {stepno}", "start at step {stepno}"]
   },
   function(req, res) {
-  var slotstep = req.slot('stepno');
-  var persstep = +req.session('step');
+  var slotstep = Number(req.slot('stepno'));
+  var persstep = Number(+req.session('step'));
   console.log("persstep= " + persstep + ", slotstep = " + slotstep + ", number.isintegerslotstep= " + Number.isInteger(slotstep) ); //should it be freaking number. Or should I just be integer?
   
 if (slotstep && slotstep > 0 && slotstep < 8 && parseFloat(slotstep) == parseInt(slotstep) && !isNaN(slotstep)){
@@ -141,8 +141,8 @@ alexaApp.intent('StepContinue', {
     "utterances": ["continue", "next step", "begin", "{stepno}", "step {stepno}", "go to {stepno}", "go to step {stepno}", "read step {stepno}", "begin with step {stepno}", "start at step {stepno}"]
   },
   function(req, res) {
-  var slotstep = req.slot('stepno');
-  var persstep = +req.session('step');
+  var slotstep = Number(req.slot('stepno'));
+  var persstep = Number(+req.session('step'));
   console.log("persstep= " + persstep + ", slotstep = " + slotstep); 
   
 //Intro block 3
