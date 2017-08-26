@@ -46,7 +46,7 @@ var steps = {
   12 : 'add tomato sauce, and Brush the edges of the crust with a little bit of olive oil.',
   13 : 'Bake each pizza for about 10 minutes, and remove from the oven.',
   14 : 'Add mozzarella cheese, sliced or grated, on top, as well as any other toppings.',
-  15 : 'Put the pizzas back in the oven and bake until the bottom of the crusts are browned and the cheese is melted.'
+  15 : 'Put the pizzas back in the oven and bake until the bottom of the crusts are browned and the cheese is melted.',
   16 : 'Remove your pizzas from the oven, and garnish with a few basil leaves.',
   17 : 'Make sure your pizzas have cooled enough to safely handle, then serve, and enjoy!' 
    };
