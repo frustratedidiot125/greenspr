@@ -32,7 +32,7 @@ app.set("view engine", "ejs");
 //=========================================================================================================================================
 var steps = {
   8 : 'Hi! I can teach you how to make authentic-ish, Italian-style pizza at home! Just say continue to begin! ',
-  1 : 'collect the following ingredients. 3 and a half cups of all purpose flour, 1 half cup of salt, 1 tablespoon cream of tartar, 2 and a half tablespoons of oil, and 2 cups of water. You\'ll also need a large mixing bowl, a pot to boil water, a wooden spoon, and a cookie sheet.  You can grab some food coloring and vanilla extract if you would like to dye and scent the clay.',
+  1 : 'You\'ll need the following ingredients. 2 and a half cups of warm water, 7 cups of flour, type double zero if you can manage it, but regular is fine. 3 tablespoons of fresh yeast or 2 teaspoons of dried yeast, 6 tablespoons of extra virgin olive oil, cream of tartar, 1 and a half tablespoons of salt, and 2 teaspoons of sugar. You\'ll also need 2 medium mixing bowls, a clear clean table space, an oven, tomato sauce, a cooking brush, mozarella cheese, an oiled pizza pan or baking sheet, and several basil leaves.',
   2 : 'Pour the water into the pot.  Optionally add a couple drops of food coloring for color, and start to bring the water to a boil.',
   3 : 'whilst waiting for the water to boil, add the flour, salt, and tartar to the mixing bowl, and mix thoroughly with the wooden spoon.',
   4 : 'remove the boiling pot water from heat, and carefully add in the oil and mix them together.',
