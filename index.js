@@ -31,7 +31,7 @@ app.set("view engine", "ejs");
 //TODO: The items below this comment need your attention.
 //=========================================================================================================================================
 var steps = {
-  8 : 'Hi! I can teach you how to make your own modeling clay out of common kitchen materials! Just say continue to begin! ',
+  8 : 'Hi! I can teach you how to make authentic-ish, Italian-style pizza at home!Just say continue to begin! ',
   1 : 'collect the following ingredients. 3 and a half cups of all purpose flour, 1 half cup of salt, 1 tablespoon cream of tartar, 2 and a half tablespoons of oil, and 2 cups of water. You\'ll also need a large mixing bowl, a pot to boil water, a wooden spoon, and a cookie sheet.  You can grab some food coloring and vanilla extract if you would like to dye and scent the clay.',
   2 : 'Pour the water into the pot.  Optionally add a couple drops of food coloring for color, and start to bring the water to a boil.',
   3 : 'whilst waiting for the water to boil, add the flour, salt, and tartar to the mixing bowl, and mix thoroughly with the wooden spoon.',
@@ -47,12 +47,12 @@ alexaApp.launch(function(req, res) {
 
   
  // res.session('persstep', 0); //maybe we want to put that or some variation of this somewhere else like in the intent. We also never  figured out the repeat function but the hell with that.
-  var prompt = "Hi! I can teach you how to make your own modeling clay out of common kitchen materials! Just say continue to begin! if we've done this before, I'll try to resume where we last left off.  you can also say the word step, followed by the number of any step from 1 to 7 you'd like to go to, and I'll start from there.";
+  var prompt = "Hi there! I can teach you how to make authentic-ish, Italian-style pizza in your kitchen, at home! Just say continue to begin! if you've been here before, I'll try to pick up where we left off.  If you want to start from a particular step, just say the word step, followed by the step number. And you can say stop at any time to exit. ";
   res.say(prompt).reprompt(prompt).shouldEndSession(false);
 });
 
 alexaApp.intent('StepIntent', {
-    "slots": {"stepno" : "numnum" },
+    "slots": {"stepno" : "numba" },
     "utterances": ["continue", "next step", "begin", "{stepno}", "step {stepno}", "go to {stepno}", "go to step {stepno}", "read step {stepno}", "begin with step {stepno}", "start at step {stepno}"]
   },
   function(req, res) {
