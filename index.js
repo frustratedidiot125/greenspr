@@ -31,7 +31,7 @@ app.set("view engine", "ejs");
 //TODO: The items below this comment need your attention.
 //=========================================================================================================================================
 var steps = {
-  8 : 'Hi! I can teach you how to make authentic-ish, Italian-style pizza at home!Just say continue to begin! ',
+  8 : 'Hi! I can teach you how to make authentic-ish, Italian-style pizza at home! Just say continue to begin! ',
   1 : 'collect the following ingredients. 3 and a half cups of all purpose flour, 1 half cup of salt, 1 tablespoon cream of tartar, 2 and a half tablespoons of oil, and 2 cups of water. You\'ll also need a large mixing bowl, a pot to boil water, a wooden spoon, and a cookie sheet.  You can grab some food coloring and vanilla extract if you would like to dye and scent the clay.',
   2 : 'Pour the water into the pot.  Optionally add a couple drops of food coloring for color, and start to bring the water to a boil.',
   3 : 'whilst waiting for the water to boil, add the flour, salt, and tartar to the mixing bowl, and mix thoroughly with the wooden spoon.',
