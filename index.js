@@ -31,15 +31,25 @@ app.set("view engine", "ejs");
 //TODO: The items below this comment need your attention.
 //=========================================================================================================================================
 var steps = {
-  8 : 'Hi! I can teach you how to make authentic-ish, Italian-style pizza at home! Just say continue to begin! ',
-  1 : 'You\'ll need the following ingredients. 2 and a half cups of warm water, 7 cups of flour, type double zero if you can manage it, but regular is fine. 3 tablespoons of fresh yeast or 2 teaspoons of dried yeast, 6 tablespoons of extra virgin olive oil, cream of tartar, 1 and a half tablespoons of salt, and 2 teaspoons of sugar. You\'ll also need 2 medium mixing bowls, a clear clean table space, an oven, tomato sauce, a cooking brush, mozarella cheese, an oiled pizza pan or baking sheet, and several basil leaves.',
-  2 : 'Pour the water into the pot.  Optionally add a couple drops of food coloring for color, and start to bring the water to a boil.',
-  3 : 'whilst waiting for the water to boil, add the flour, salt, and tartar to the mixing bowl, and mix thoroughly with the wooden spoon.',
-  4 : 'remove the boiling pot water from heat, and carefully add in the oil and mix them together.',
-  5 : 'carefully pour the mixture from the pot into the mixing bowl. Mix thoroughly using the wooden spoon, optionally add a few drops of vanilla extract for aroma, and leave the mixture to cool.',
-  6 : 'once the mixture is cool enough to handle, transfer it to the cookie sheet and begin kneading it until the consistency is similar to that of thick putty.',
-  7 : 'Your modelling clay should now be ready to use! If you don\'t need it right away, just add a sprinkling of water and place the clay into an airtight container for storage. Okay! You\'re all set! Enjoy!'
-  };
+  18 : 'Hi! I can teach you how to make authentic-ish, Italian-style pizza at home! Just say continue to begin! ',
+  1 : 'You\'ll need the following ingredients. 2 and a half cups of warm water, 7 cups of flour, type double zero if you can manage it, but regular is fine. 3 tablespoons of fresh yeast or 2 teaspoons of dried yeast, 6 tablespoons of extra virgin olive oil, 1 and a half tablespoons of salt, and 2 teaspoons of sugar. You\'ll also need 2 medium mixing bowls, a clear clean table space, an oven, tomato sauce, a cooking brush, a mixing spoon, mozarella cheese, an oiled pizza pan or baking sheet, and several basil leaves.',
+  2 : 'Pour the warm water into the first mixing bowl. Sprinkle in the yeast and stir until it dissolves.',
+  3 : 'Place almost all of the flour on the table in a mound roughly the shape of a volcano, with a crater at the top.',
+  4 : 'Pour the yeast and warm water mix, from the first mixing bowl, into the flour crater, along with the salt and sugar.',
+  5 : 'Knead everything together for 10 to 15 minutes until the dough is smooth and elastic, keeping your table surface floured.',
+  6 : 'Grease up the second bowl with some olive oil and put the dough inside. Turn the dough around so the top is slightly oiled.',
+  7 : 'Cover the bowl and put the dough aside to let it rest and rise for at least four or five hours.',
+  8 : 'Preheat the oven to about 400 degrees Fahrenheit',
+  9 : 'Dump the dough out of the bowl and back onto the floured surface. Punch it down, getting rid of any bubbles. Divide the dough in half and let it rest for a few minutes.',
+  10 : 'Roll each section into a 12-inch disc, and set thickness based on how thick you want your crust to be.',
+  11 : 'Transfer the dough onto the oiled pizza pan or baking sheet.',
+  12 : 'add tomato sauce, and Brush the edges of the crust with a little bit of olive oil.',
+  13 : 'Bake each pizza for about 10 minutes, and remove from the oven.',
+  14 : 'Add mozzarella cheese, sliced or grated, on top, as well as any other toppings.',
+  15 : 'Put the pizzas back in the oven and bake until the bottom of the crusts are browned and the cheese is melted.'
+  16 : 'Remove your pizzas from the oven, and garnish with a few basil leaves.',
+  17 : 'Make sure your pizzas have cooled enough to safely handle, then serve, and enjoy!' 
+   };
   
 
 
@@ -60,12 +70,12 @@ alexaApp.intent('StepIntent', {
   var persstep = Number(+req.session('step'));
   console.log("persstep= " + persstep + ", slotstep = " + slotstep + ", number.isintegerslotstep= " + Number.isInteger(slotstep) ); //should it be freaking number. Or should I just be integer?
   
-if (slotstep && slotstep > 0 && slotstep < 8 && parseFloat(slotstep) == parseInt(slotstep) && !isNaN(slotstep)){
+if (slotstep && slotstep > 0 && slotstep < 18 && parseFloat(slotstep) == parseInt(slotstep) && !isNaN(slotstep)){
   var step = slotstep; 
     } else if (slotstep == 0){
-    var step = 8;
+    var step = 18;
     
-    } else if (slotstep > 7 ){
+    } else if (slotstep > 17 ){
    var morethanseven = 1; 
    // //  res.say("Whoa there, there are only 7 steps. Please choose a step between 1 and 7, or say continue and I'll start from where I think you left off.").shouldEndSession(false);
      } else if (slotstep < 0 && !isNaN(slotstep)){
@@ -76,7 +86,7 @@ if (slotstep && slotstep > 0 && slotstep < 8 && parseFloat(slotstep) == parseInt
          var needinteger = 1;
      } else if (!(+req.session('step')) || !persstep || persstep == 0  || persstep == "??"){
    var step = 1;
- } else if ( persstep == 8 || persstep > 8) {
+ } else if ( persstep == 18 || persstep > 18) {
    var exit = 1;
  } else if (slotstep != "??" && isNaN(slotstep)) {
    var garbage = 1;
@@ -84,7 +94,7 @@ if (slotstep && slotstep > 0 && slotstep < 8 && parseFloat(slotstep) == parseInt
    //Eep - how do we deal with things that are not defined in the slot? Like an invalid intents? Or invalid rejected slots?
    //need to know of if garbage slot like 'pineapple' and persstep is valid, then refer to persstep. if no slot, then wgat
 
- } else if (persstep > 0 && persstep < 8 ){
+ } else if (persstep > 0 && persstep < 18 ){
    var step = persstep;
    //for lower down the road //if step = 7 then res.say or end session. or set res.saybsection to...somethjng else  or set turuthiness to a varuable 
  
@@ -94,37 +104,37 @@ if (slotstep && slotstep > 0 && slotstep < 8 && parseFloat(slotstep) == parseInt
   if (didntunderstanderror){
     res.session('step', 1)
     //res.say("Oh my, this is embarrassing, but I've lost count of where we were stepwise. You can say continue to start at the beginning, or step followed by the step number you'd like to resume, or say stop to exit.").shouldEndSession(false);
-    res.say(steps[8]).shouldEndSession(false);
+    res.say(steps[18]).shouldEndSession(false);
   } else if (exit) {
       res.session('step', 1)
       res.say("Hey, If you want to review a step, just say step followed by the step number you'd like to hear. You can say continue to start over.").shouldEndSession(false);
-    } else if (step == 7) { 
+    } else if (step == 17) { 
        res.session('step', 1);
-       res.say("Okay, last step " + step + ". " + steps[step] +  " Goodbye!").shouldEndSession(true);
-    } else if (step == 8) {
+       res.say("Okay, last step " + step + ". " + steps[step] +  " Gratzi! Goodbye!").shouldEndSession(true);
+    } else if (step == 18) {
       res.say(steps[step]).shouldEndSession(false);
       res.session('step', 1);
       } else if (morethanseven){
-        if (persstep == 8) {
+        if (persstep == 18) {
           persstep = 1;
     } else if (persstep == 0 || !(+req.session('step'))){
            persstep = 1; 
                     }
       res.session('step', persstep)
-      res.say("Whoa, there are only 7 steps to this skill. Please say step and choose a step between 1 and 7, or say continue and I'll start from where I think we left off.").shouldEndSession(false);
+      res.say("Whoa, there are only 17 steps in this recipe. Please say step and choose a step between 1 and 17, or say continue and I'll try to pick up where we left off.").shouldEndSession(false);
     } else if (screwingwithme){
-        res.say("There are no negatives when it comes to pizza, so I'm really not sure what to do with the negative step number you've given me. Why not try again, but this time, give me the word step followed by a positive step number between 1 and 7. Or say continue to let me take you to where all the pizza-y goodness is!").shouldEndSession(false);
+        res.say("There are no negatives when it comes to pizza, so I'm really not sure what to do with the negative step number you've given me. Why not try again, but this time, give me the word step followed by a positive step number. Or say continue to let me take you to where all the pizza-y goodness is!").shouldEndSession(false);
         res.session('step', persstep);
       } else if (needinteger){
-        res.say("Decimals? Really? Let's try again, but this time, please give me the word step followed by a step number using whole numbers, and only whole numbers, or say continue to go on to the next step.").shouldEndSession(false);
+        res.say("Decimals? Really? Pizza comes in fractional slices, not decimals. Do try again, but this time, please give me the word step followed by a step number using whole numbers, and only whole numbers, or say continue to go on to the next step.").shouldEndSession(false);
         res.session('step', persstep);
     } else if (garbage){
-       if (persstep > 0 && persstep < 8) {
+       if (persstep > 0 && persstep < 18) {
         // persstep += 1;
-         res.say("I'm sorry, I did not understand what you were trying to say there. Please say the word step and choose a step number between 1 and 7, or say continue and I'll start from where I think we left off.").shouldEndSession(false);
+         res.say("I'm sorry, I did not understand what you were trying to say there. Please say the word step and choose a step number between 1 and 17, or say continue and I'll start from where I think we left off.").shouldEndSession(false);
          res.session('step', persstep);
          } else { 
-         res.say("I'm sorry, I did not understand what you were trying to say there, Please try again. Say step and choose a step number between 1 and 7, or say begin and I'll start from the beginning.").shouldEndSession(false);
+         res.say("I'm sorry, I did not understand what you were trying to say there, Please try again. Say step and choose a step number between 1 and 17, or say begin and I'll start from the beginning.").shouldEndSession(false);
          res.session('step', 1);
          }
       } else {
@@ -146,26 +156,26 @@ alexaApp.intent('StepContinue', {
   console.log("persstep= " + persstep + ", slotstep = " + slotstep); 
   
 //Intro block 3
- if (persstep > 0 && persstep < 8 ){
+ if (persstep > 0 && persstep < 18 ){
    var step = persstep;
    //for lower down the road //if step = 7 then res.say or end session. or set res.saybsection to...somethjng else  or set turuthiness to a varuable 
- } else if ( persstep == 8 || persstep > 8) {
+ } else if ( persstep == 18 || persstep > 18) {
    var exit = 1;
  } else if (persstep == 0) {
-   var step = 8;
+   var step = 18;
  }  else { var didntunderstanderror = 1 }       
   
   if (didntunderstanderror){
     res.session('step', 1)
     //res.say("Oh my, this is embarrassing, but I've lost count of where we were stepwise. You can say begin to start at the beginning, or step followed by the step number you'd like to resume, or say stop to exit.").shouldEndSession(false);
-   res.say(steps[8]).shouldEndSession(false);
+   res.say(steps[18]).shouldEndSession(false);
   } else if (exit) {
       res.session('step', 1)
       res.say("Hey, If you want to review a step, just say step followed by the step number you'd like to hear.").shouldEndSession(false);
-    } else if (step == 7) { 
+    } else if (step == 17) { 
        res.session('step', 1);
-       res.say("Okay, last step, step " + step + ". " + steps[step] +  " Goodbye and Good luck!").shouldEndSession(true);
-    } else if (step == 8) {
+       res.say("Okay, last step, step " + step + ". " + steps[step] +  " Gratzi! Goodbye!").shouldEndSession(true);
+    } else if (step == 18) {
       res.say(steps[step]).shouldEndSession(false);
       res.session('step', 1);
     } else {
@@ -183,7 +193,7 @@ alexaApp.intent("AMAZON.HelpIntent", {
   "slots": {} },
   function(request, response) {
     
-var HELP_MESSAGE = "Say continue to proceed to the next instructive step, or specify a step by saying step followed by a step number between 1 and 7.  Follow the instructions and further prompts or say stop to exit at any time. And remember, have fun!";
+var HELP_MESSAGE = "Say continue to proceed to the next step, or specify a step by saying step followed by a step number between 1 and 17.  Follow the instructions and further prompts or say stop to exit at any time. And remember, pizza is fun!";
     response.say(HELP_MESSAGE).shouldEndSession(false);
   }
  );
