@@ -113,10 +113,10 @@ if (slotstep && slotstep > 0 && slotstep < 8 && parseFloat(slotstep) == parseInt
       res.session('step', persstep)
       res.say("Whoa, there are only 7 steps to this skill. Please say step and choose a step between 1 and 7, or say continue and I'll start from where I think we left off.").shouldEndSession(false);
     } else if (screwingwithme){
-        res.say("Negative numbers? That's impressive, but I'm not sure what to do with that. let's try again, but this time, give me the word step followed by a positive step number between 1 and 7. Or say continue to let me take you where I want to go!").shouldEndSession(false);
+        res.say("There are no negatives when it comes to pizza, so I'm really not sure what to do with the negative step number you've given me. Why not try again, but this time, give me the word step followed by a positive step number between 1 and 7. Or say continue to let me take you to where all the pizza-y goodness is!").shouldEndSession(false);
         res.session('step', persstep);
       } else if (needinteger){
-        res.say("Decimals? Really? Let's try again, but this time, please give me the word step followed by a step number using whole numbers, and only whole numbers, or say continue to go on to the next logical step.").shouldEndSession(false);
+        res.say("Decimals? Really? Let's try again, but this time, please give me the word step followed by a step number using whole numbers, and only whole numbers, or say continue to go on to the next step.").shouldEndSession(false);
         res.session('step', persstep);
     } else if (garbage){
        if (persstep > 0 && persstep < 8) {
