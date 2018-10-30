@@ -32,7 +32,7 @@ app.set("view engine", "ejs");
 //=========================================================================================================================================
 var steps = {
   18 : 'Hi! I can teach you how to make authentic-ish, Italian-style pizza at home! Just say continue to begin! ',
-  1 : 'You\'ll need the following ingredients. 2 and a half cups of warm water, 7 cups of flour, type double zero if you can manage it, but regular is fine. 3 tablespoons of fresh yeast or 2 teaspoons of dried yeast, 6 tablespoons of extra virgin olive oil, 1 and a half tablespoons of salt, and 2 teaspoons of sugar. You\'ll also need 2 medium mixing bowls, a clear clean table space, an oven, tomato sauce, a cooking brush, a mixing spoon, mozarella cheese, an oiled pizza pan or baking sheet, and several basil leaves.',
+  1 : 'First, you\'ll need to gather the following ingredients. 1/4  cup all-purpose flour, 2 tablespoon unsweetened cocoa powder, 1/4 teaspoon baking powder, 2 to 3 tablespoons granulated sugar, 1/8 teaspoon salt, 1/4 cup plus 1 tablespoon milk, 2 tablespoon vegetable oil, and either 1 tablespoon hazelnut chocolate spread or mini chocolate chips.',
   2 : 'Pour the warm water into the first mixing bowl. Sprinkle in the yeast and stir until it dissolves.',
   3 : 'Place almost all of the flour on the table in a mound roughly the shape of a volcano, with a crater at the top.',
   4 : 'Pour the yeast and warm water mix, from the first mixing bowl, into the flour crater, along with the salt and sugar.',
