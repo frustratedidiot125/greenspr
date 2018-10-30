@@ -123,10 +123,10 @@ if (slotstep && slotstep > 0 && slotstep < 18 && parseFloat(slotstep) == parseIn
       res.session('step', persstep)
       res.say("Whoa, there are only 17 steps in this recipe. Please say step and choose a step between 1 and 17, or say continue and I'll try to pick up where we left off.").shouldEndSession(false);
     } else if (screwingwithme){
-        res.say("There are no negatives when it comes to pizza, so I'm really not sure what to do with the negative step number you've given me. Why not try again, but this time, give me the word step followed by a positive step number. Or say continue to let me take you to where all the pizza-y goodness is!").shouldEndSession(false);
+        res.say("There are no negatives when it comes to cupcakes, so I'm really not sure what to do with the negative step number you've given me. Why not try again, but this time, give me the word step followed by a positive step number. Or say continue to let me take you to where all the cupcake-y goodness is!").shouldEndSession(false);
         res.session('step', persstep);
       } else if (needinteger){
-        res.say("Decimals? Really? Pizza comes in fractional slices, not decimals. Do try again, but this time, please give me the word step followed by a step number using whole numbers, and only whole numbers, or say continue to go on to the next step.").shouldEndSession(false);
+        res.say("Decimals? Really? Cake comes in fractional slices, not decimals. Do try again, but this time, please give me the word step followed by a step number using whole numbers, and only whole numbers, or say continue to go on to the next step.").shouldEndSession(false);
         res.session('step', persstep);
     } else if (garbage){
        if (persstep > 0 && persstep < 18) {
