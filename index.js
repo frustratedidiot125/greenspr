@@ -31,17 +31,16 @@ app.set("view engine", "ejs");
 //TODO: The items below this comment need your attention.
 //=========================================================================================================================================
 var steps = {
-10 : 'Hi there! I can teach you how to make an authentic, single-serving, cupcake that could be ready to eat in slightly over a minute! Just say continue to begin!',
-  1 : 'First, you\'ll need to gather the following ingredients. 1/4 cup all-purpose flour, 2 tablespoons unsweetened cocoa powder, 1/4 teaspoon baking powder, 2 to 3 tablespoons granulated sugar, 1/8 teaspoon salt, 1/4 cup plus 1 tablespoon milk, 2 tablespoons vegetable oil, and either 1 tablespoon hazelnut chocolate spread or mini chocolate chips.',
-
-  2 : 'Next, you\'ll need some basic kitchen hardware. grab a whisk or a fork if no whisk can be found, a medium sized Bowl, a Microwave safe mug, larger is better, a section of paper towel or a large microwave safe plate, and make sure you\'ve got a working microwave.',
-  3: 'Whisk together all the dry ingredients in your medium-sized Bowl.',
-  4: 'Whisk in the milk and the vegetable oil until all ingredients are combined and your batter has no clumps.',
-  5: 'Pour the batter into a microwave-safe mug. You\'ll want to make sure there\'s enough room for the cake to expand without spilling over.',
-  6: 'Drop the hazelnut spread in a dollop or simply pour the chocolate chips into the center of the top of the batter.',
-  7: 'Place the mug in the center of the microwave with the paper towel or large plate underneath.',
-  8: 'Now it\'s time to cook your creation. Set your microwave on high and prepare to cook for about 70 seconds. Depending on the power of your device, you may need to add or shave off a few seconds. This recipe has been calibrated for 950 watt ovens, so, just use your judgement. Hit start and watch out for signs of overcooking.', 
-  9: 'Allow the cupcake and mug to cool just a bit, carefully remove the mug from the plate or paper towel. there may be some spillage. And you\'re ready to serve your freshly baked cupcake. Enjoy!' 
+10 : 'Hi there! I can teach you how to make an improvised vanilla french toast, if you find yourself all out of toast.  Just say continue to begin!',
+  1 : 'First, you\'ll need to gather 4 eggs, 1/4 cup heavy cream, 2 teaspoons of vanilla extract, a  few shakes of cinnamon sugar, syrup, and 4 cups of nilla wafers minis.',  
+  2 : 'Beat the eggs.',
+  3: 'Mix in and whisk heavy cream, vanilla, and sugar.',
+  4: 'Arrange the nillas in a few flat layers in a baking dish.',
+  5: 'Pour the egg mixture over the nillas. Top them with a shake of cinnamon sugar.',
+  6: 'Preheat your oven to 350 degrees fahrenheit while the nilla wafers soak.',
+  7: 'After an appropriate amount of preheating time, place the baking dish in the oven.',
+  8: 'Monitor the dish and remove once the egg has set. It should fluff up a bit.', 
+  9: 'Allow the dish to cool a bit and you\'re ready to serve your toastless vanilla french toast. Enjoy!' 
    };
   
 
@@ -50,7 +49,7 @@ alexaApp.launch(function(req, res) {
 
   
  // res.session('persstep', 0); //maybe we want to put that or some variation of this somewhere else like in the intent. We also never  figured out the repeat function but the hell with that.
-  var prompt = "Hi there! I can teach you how to make an authentic, single-serving, cupcake that could be ready to eat in slightly over a minute! Just say continue to begin! If you've been here before, I'll try to pick up where we left off.  If you want to start from a particular step, just say the word step, followed by the step number. You can say stop at any time to exit. ";
+  var prompt = "Hi there! I can teach you how to make an improvised vanilla french toast, if you find yourself all out of toast. Just say continue to begin! If you've been here before, I'll try to pick up where we left off.  If you want to start from a particular step, just say the word step, followed by the step number. You can say stop at any time to exit. ";
   res.say(prompt).reprompt(prompt).shouldEndSession(false);
 });
 
@@ -116,10 +115,10 @@ if (slotstep && slotstep > 0 && slotstep < 10 && parseFloat(slotstep) == parseIn
       res.session('step', persstep)
       res.say("Whoa, there are only 9 steps in this recipe. Please say step and choose a step between 1 and 9, or say continue and I'll try to pick up where we left off.").shouldEndSession(false);
     } else if (screwingwithme){
-        res.say("There are no negatives when it comes to cupcakes, so I'm really not sure what to do with the negative step number you've given me. Why not try again, but this time, give me the word step followed by a positive step number. Or say continue to let me take you to where all the cupcake-y goodness is!").shouldEndSession(false);
+        res.say("There are no negatives when it comes to toast, so I'm really not sure what to do with the negative step number you've given me. Why not try again, but this time, give me the word step followed by a positive step number. Or say continue to let me take you to where all the delicious goodness is!").shouldEndSession(false);
         res.session('step', persstep);
       } else if (needinteger){
-        res.say("Decimals? Really? Cake comes in fractional slices, not decimals. Do try again, but this time, please give me the word step followed by a step number using whole numbers, and only whole numbers, or say continue to go on to the next step.").shouldEndSession(false);
+        res.say("Decimals? Really? Toast comes in single slices, not decimals. Do try again, but this time, please give me the word step followed by a step number using whole numbers, and only whole numbers, or say continue to go on to the next step.").shouldEndSession(false);
         res.session('step', persstep);
     } else if (garbage){
        if (persstep > 0 && persstep < 10) {
