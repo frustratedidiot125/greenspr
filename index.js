@@ -31,7 +31,7 @@ app.set("view engine", "ejs");
 //TODO: The items below this comment need your attention.
 //=========================================================================================================================================
 var steps = {
-10 : 'Hi there! Let\'s begin making our improvised french toast.',
+10 : 'Ok! Let\'s begin making our improvised french toast. Say continue to go to the first step!',
   1 : 'First, you\'ll need to gather 4 eggs, 1/4 cup heavy cream, 2 teaspoons of vanilla extract, a  few shakes of cinnamon sugar, syrup, and 4 cups of nilla wafers minis.',  
   2 : 'Beat the eggs.',
   3: 'Mix in and whisk heavy cream, vanilla, and sugar.',
