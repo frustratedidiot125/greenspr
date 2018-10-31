@@ -78,7 +78,7 @@ if (slotstep && slotstep > 0 && slotstep < 8 && parseFloat(slotstep) == parseInt
          var needinteger = 1;
      } else if (!(+req.session('step')) || !persstep || persstep == 0  || persstep == "??"){
    var step = 1;
- } else if ( persstep == 18 || persstep > 18) {
+ } else if ( persstep == 8 || persstep > 8) {
    var exit = 1;
  } else if (slotstep != "??" && isNaN(slotstep)) {
    var garbage = 1;
@@ -86,7 +86,7 @@ if (slotstep && slotstep > 0 && slotstep < 8 && parseFloat(slotstep) == parseInt
    //Eep - how do we deal with things that are not defined in the slot? Like an invalid intents? Or invalid rejected slots?
    //need to know of if garbage slot like 'pineapple' and persstep is valid, then refer to persstep. if no slot, then wgat
 
- } else if (persstep > 0 && persstep < 18 ){
+ } else if (persstep > 0 && persstep < 8 ){
    var step = persstep;
    //for lower down the road //if step = 7 then res.say or end session. or set res.saybsection to...somethjng else  or set turuthiness to a varuable 
  
@@ -96,7 +96,7 @@ if (slotstep && slotstep > 0 && slotstep < 8 && parseFloat(slotstep) == parseInt
   if (didntunderstanderror){
     res.session('step', 1)
     //res.say("Oh my, this is embarrassing, but I've lost count of where we were stepwise. You can say continue to start at the beginning, or step followed by the step number you'd like to resume, or say stop to exit.").shouldEndSession(false);
-    res.say(steps[10]).shouldEndSession(false);
+    res.say(steps[8]).shouldEndSession(false);
   } else if (exit) {
       res.session('step', 1)
       res.say("Hey, If you want to review a step, just say step followed by the step number you'd like to hear. You can say continue to start over.").shouldEndSession(false);
@@ -113,7 +113,7 @@ if (slotstep && slotstep > 0 && slotstep < 8 && parseFloat(slotstep) == parseInt
            persstep = 1; 
                     }
       res.session('step', persstep)
-      res.say("Whoa, there are only 9 steps in this recipe. Please say step and choose a step between 1 and 9, or say continue and I'll try to pick up where we left off.").shouldEndSession(false);
+      res.say("Whoa, there are only 7 steps in this recipe. Please say step and choose a step between 1 and 7, or say continue and I'll try to pick up where we left off.").shouldEndSession(false);
     } else if (screwingwithme){
         res.say("There are no negatives when it comes to food, so I'm really not sure what to do with the negative step number you've given me. Why not try again, but this time, give me the word step followed by a positive step number. Or say continue to let me take you to where all the delicious goodness is!").shouldEndSession(false);
         res.session('step', persstep);
@@ -121,7 +121,7 @@ if (slotstep && slotstep > 0 && slotstep < 8 && parseFloat(slotstep) == parseInt
         res.say("Decimals? Really? Food comes in single slices, not decimals. Do try again, but this time, please give me the word step followed by a step number using whole numbers, and only whole numbers, or say continue to go on to the next step.").shouldEndSession(false);
         res.session('step', persstep);
     } else if (garbage){
-       if (persstep > 0 && persstep < 10) {
+       if (persstep > 0 && persstep < 8) {
         // persstep += 1;
          res.say("I'm sorry, I did not understand what you were trying to say there. Please say the word step and choose a step number between 1 and 9, or say continue and I'll start from where I think we left off.").shouldEndSession(false);
          res.session('step', persstep);
