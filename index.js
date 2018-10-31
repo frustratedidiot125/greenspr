@@ -31,16 +31,16 @@ app.set("view engine", "ejs");
 //TODO: The items below this comment need your attention.
 //=========================================================================================================================================
 var steps = {
-10 : 'Ok! let\'s start making that Mongolian Beef! When you\'re ready for the first step, Say continue!',
-  1 : 'First, you\'ll need to gather some vegetable oil, 1/2 teaspoon ginger, 1 tablespoon garlic, 1/2 cup soy sauce, 1/2 cup water, 3/4 cup dark brown sugar, 1 pound flank steak, 1 yellow onion, and 2 large green onions.',
-  2 : 'Slice the beef thin and cut the yellow onion into petals. Cook with a bit of oil in a medium saucepan. Set aside when done.',
-  3: 'Make the sauce by heating 2 teaspoons of vegetable oil over medium low heat in the same pan. Don’t let the oil get too hot.',
-  4: 'Add ginger and garlic to the pan and quickly add the soy sauce and water before the garlic scorches.',
-  5: 'Dissolve the brown sugar in the sauce, then raise the heat to medium and boil the sauce for 2 to 3 minutes or until the sauce thickens.',
-  7: 'Remove from heat, add the beef back in, and give it a good toss.',
-  6: 'Optionally, add in chili paste or sauce for additional taste.',
-  8: 'Plate beef with rice, top with green onions.', 
-  9: 'Allow the dish to cool slightly and serve. Enjoy!' 
+8 : 'Ok! let\'s start making that fish! When you\'re ready for the first step, Say continue!',
+  1 : 'First, you\'ll need 4 slices of fish, whitefish, trout, salmon, or halibut. salt, to taste, garlic powder, for sprinkling, paprika, for sprinkling, and lemon wedges, for garnish.',
+  2 : 'Sprinkle fish lightly with salt on all sides.',
+  3: 'Sprinkle with garlic powder and paprika.',
+  4: 'Refrigerate for about half an hour.',
+  5: 'Cover and microwave on high for 8–9 minutes.',  
+  7: 'Serve warm, garnished with lemon wedges dipped in paprika.',
+  6: 'Let stand covered for 5 minutes.',
+  //8: 'Plate beef with rice, top with green onions.', 
+  //9: 'Allow the dish to cool slightly and serve. Enjoy!' 
    };
   
 
@@ -49,7 +49,7 @@ alexaApp.launch(function(req, res) {
 
   
  // res.session('persstep', 0); //maybe we want to put that or some variation of this somewhere else like in the intent. We also never  figured out the repeat function but the hell with that.
-  var prompt = "Hi there! I can teach you how to make an pretty decent mongolian beef dinner. It\'s a bit involved, but worth the effort. Just say continue to begin! If you've been here before, I'll try to pick up where we left off.  If you want to start from a particular step, just say the word step, followed by the step number. You can say stop at any time to exit. ";
+  var prompt = "Hi there! I can teach you how to make baked fish in your very own microwave. Just say continue to begin! If you've been here before, I'll try to pick up where we left off.  If you want to start from a particular step, just say the word step, followed by the step number. You can say stop at any time to exit. ";
   res.say(prompt).reprompt(prompt).shouldEndSession(false);
 });
 
@@ -62,12 +62,12 @@ alexaApp.intent('StepIntent', {
   var persstep = Number(+req.session('step'));
   console.log("persstep= " + persstep + ", slotstep = " + slotstep + ", number.isintegerslotstep= " + Number.isInteger(slotstep) ); //should it be freaking number. Or should I just be integer?
   
-if (slotstep && slotstep > 0 && slotstep < 10 && parseFloat(slotstep) == parseInt(slotstep) && !isNaN(slotstep)){
+if (slotstep && slotstep > 0 && slotstep < 8 && parseFloat(slotstep) == parseInt(slotstep) && !isNaN(slotstep)){
   var step = slotstep; 
     } else if (slotstep == 0){
     var step = 10;
     
-    } else if (slotstep > 9 ){
+    } else if (slotstep > 7 ){
    var morethanseven = 1; 
    // //  res.say("Whoa there, there are only 7 steps. Please choose a step between 1 and 7, or say continue and I'll start from where I think you left off.").shouldEndSession(false);
      } else if (slotstep < 0 && !isNaN(slotstep)){
@@ -100,14 +100,14 @@ if (slotstep && slotstep > 0 && slotstep < 10 && parseFloat(slotstep) == parseIn
   } else if (exit) {
       res.session('step', 1)
       res.say("Hey, If you want to review a step, just say step followed by the step number you'd like to hear. You can say continue to start over.").shouldEndSession(false);
-    } else if (step == 9) { 
+    } else if (step == 8) { 
        res.session('step', 1);
        res.say("Okay, last step " + step + ". " + steps[step] +  " Okay! Goodbye!").shouldEndSession(true);
-    } else if (step == 10) {
+    } else if (step == 8) {
       res.say(steps[step]).shouldEndSession(false);
       res.session('step', 1);
       } else if (morethanseven){
-        if (persstep == 10) {
+        if (persstep == 8) {
           persstep = 1;
     } else if (persstep == 0 || !(+req.session('step'))){
            persstep = 1; 
@@ -148,26 +148,26 @@ alexaApp.intent('StepContinue', {
   console.log("persstep= " + persstep + ", slotstep = " + slotstep); 
   
 //Intro block 3
- if (persstep > 0 && persstep < 10 ){
+ if (persstep > 0 && persstep < 8 ){
    var step = persstep;
    //for lower down the road //if step = 7 then res.say or end session. or set res.saybsection to...somethjng else  or set turuthiness to a varuable 
- } else if ( persstep == 10 || persstep > 10) {
+ } else if ( persstep == 8 || persstep > 8) {
    var exit = 1;
  } else if (persstep == 0) {
-   var step = 10;
+   var step = 8;
  }  else { var didntunderstanderror = 1 }       
   
   if (didntunderstanderror){
     res.session('step', 1)
     //res.say("Oh my, this is embarrassing, but I've lost count of where we were stepwise. You can say begin to start at the beginning, or step followed by the step number you'd like to resume, or say stop to exit.").shouldEndSession(false);
-   res.say(steps[10]).shouldEndSession(false);
+   res.say(steps[8]).shouldEndSession(false);
   } else if (exit) {
       res.session('step', 1)
       res.say("Hey, If you want to review a step, just say step followed by the step number you'd like to hear.").shouldEndSession(false);
-    } else if (step == 9) { 
+    } else if (step == 7) { 
        res.session('step', 1);
        res.say("Okay, last step, step " + step + ". " + steps[step] +  " Thanks! Goodbye!").shouldEndSession(true);
-    } else if (step == 10) {
+    } else if (step == 8) {
       res.say(steps[step]).shouldEndSession(false);
       res.session('step', 1);
     } else {
@@ -185,7 +185,7 @@ alexaApp.intent("AMAZON.HelpIntent", {
   "slots": {} },
   function(request, response) {
     
-var HELP_MESSAGE = "Say continue to proceed to the next step, or specify a step by saying step followed by a step number between 1 and 9.  Follow the instructions and further prompts or say stop to exit at any time. And remember, cooking is fun!";
+var HELP_MESSAGE = "Say continue to proceed to the next step, or specify a step by saying step followed by a step number between 1 and 7.  Follow the instructions and further prompts or say stop to exit at any time. And remember, cooking is fun!";
     response.say(HELP_MESSAGE).shouldEndSession(false);
   }
  );
