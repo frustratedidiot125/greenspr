@@ -33,7 +33,9 @@ app.set("view engine", "ejs");
 var steps = {
   18 : 'Hi! I can teach you how to make authentic-ish, Italian-style pizza at home! Just say continue to begin! ',
   1 : 'First, you\'ll need to gather the following ingredients. 1/4  cup all-purpose flour, 2 tablespoon unsweetened cocoa powder, 1/4 teaspoon baking powder, 2 to 3 tablespoons granulated sugar, 1/8 teaspoon salt, 1/4 cup plus 1 tablespoon milk, 2 tablespoon vegetable oil, and either 1 tablespoon hazelnut chocolate spread or mini chocolate chips.',
-  2 : '
+
+  2 : 'Next hardware need some basichardware. grab a whisk, a medium sized Bowl, a Microwave safe mug, larger is better, a paper towel, and make sure you\'ve got a working microwave.',
+  3: 'Whisk together all dry ingredients in your medium-sized Bowl.'
    };
   
 
