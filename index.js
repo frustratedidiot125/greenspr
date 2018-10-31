@@ -31,11 +31,17 @@ app.set("view engine", "ejs");
 //TODO: The items below this comment need your attention.
 //=========================================================================================================================================
 var steps = {
-  18 : 'Hi! I can teach you how to make authentic-ish, Italian-style pizza at home! Just say continue to begin! ',
+10 : 'Hi there! I can teach you how to make an authentic-ish, single-serving, cupcake that could ready to eat in slightly over a minute! Just say continue to begin!',
   1 : 'First, you\'ll need to gather the following ingredients. 1/4  cup all-purpose flour, 2 tablespoon unsweetened cocoa powder, 1/4 teaspoon baking powder, 2 to 3 tablespoons granulated sugar, 1/8 teaspoon salt, 1/4 cup plus 1 tablespoon milk, 2 tablespoon vegetable oil, and either 1 tablespoon hazelnut chocolate spread or mini chocolate chips.',
 
-  2 : 'Next hardware need some basichardware. grab a whisk, a medium sized Bowl, a Microwave safe mug, larger is better, a paper towel, and make sure you\'ve got a working microwave.',
-  3: 'Whisk together all dry ingredients in your medium-sized Bowl.'
+  2 : 'Next, you\'ll need some basic kitchen hardware. grab a whisk or a fork if no whisk can be found, a medium sized Bowl, a Microwave safe mug, larger is better, a section of paper towel or a large microwave safe plate, and make sure you\'ve got a working microwave.',
+  3: 'Whisk together all the dry ingredients in your medium-sized Bowl.',
+  4: 'Whisk in the milk and the vegetable oil until all ingredients are combined and your batter has no clumps.',
+  5: 'Pour the batter into a microwave-safe mug. You\'ll want to make sure there\'s enough room for the cake to expand without spilling over.',
+  6: 'Drop the hazelnut spread in a dollop or simply pour the chocolate chips into the center of the top of the batter.',
+  7: 'Place the mug in the center of the microwave with the paper towel or large plate underneath.',
+  8: 'Now it\'s time to cook your creation. Set your microwave on high and prepare to cook for about 70 seconds. Depending on the power of your device, you may need to add or shave off a few seconds. This recipe has been calibrated for 950 watt ovens, so, just use your judgement. Hit start and watch out for signs of overcooking.', 
+  9: 'Allow the cupcake and mug to cool just a bit, carefully remove the mug from the plate or paper towel. there may be some spillage. And you\'re ready to serve your freshly baked cupcake. Enjoy!' 
    };
   
 
@@ -44,7 +50,7 @@ alexaApp.launch(function(req, res) {
 
   
  // res.session('persstep', 0); //maybe we want to put that or some variation of this somewhere else like in the intent. We also never  figured out the repeat function but the hell with that.
-  var prompt = "Hi there! I can teach you how to make authentic-ish, Italian-style pizza in your kitchen, at home! Just say continue to begin! if you've been here before, I'll try to pick up where we left off.  If you want to start from a particular step, just say the word step, followed by the step number. And you can say stop at any time to exit. ";
+  var prompt = "Hi there! I can teach you how to make an authentic-ish, single-serving, cupcake that could ready to eat in slightly over a minute! Just say continue to begin! If you've been here before, I'll try to pick up where we left off.  If you want to start from a particular step, just say the word step, followed by the step number. And you can say stop at any time to exit. ";
   res.say(prompt).reprompt(prompt).shouldEndSession(false);
 });
 
@@ -57,12 +63,12 @@ alexaApp.intent('StepIntent', {
   var persstep = Number(+req.session('step'));
   console.log("persstep= " + persstep + ", slotstep = " + slotstep + ", number.isintegerslotstep= " + Number.isInteger(slotstep) ); //should it be freaking number. Or should I just be integer?
   
-if (slotstep && slotstep > 0 && slotstep < 18 && parseFloat(slotstep) == parseInt(slotstep) && !isNaN(slotstep)){
+if (slotstep && slotstep > 0 && slotstep < 10 && parseFloat(slotstep) == parseInt(slotstep) && !isNaN(slotstep)){
   var step = slotstep; 
     } else if (slotstep == 0){
-    var step = 18;
+    var step = 10;
     
-    } else if (slotstep > 17 ){
+    } else if (slotstep > 9 ){
    var morethanseven = 1; 
    // //  res.say("Whoa there, there are only 7 steps. Please choose a step between 1 and 7, or say continue and I'll start from where I think you left off.").shouldEndSession(false);
      } else if (slotstep < 0 && !isNaN(slotstep)){
@@ -91,24 +97,24 @@ if (slotstep && slotstep > 0 && slotstep < 18 && parseFloat(slotstep) == parseIn
   if (didntunderstanderror){
     res.session('step', 1)
     //res.say("Oh my, this is embarrassing, but I've lost count of where we were stepwise. You can say continue to start at the beginning, or step followed by the step number you'd like to resume, or say stop to exit.").shouldEndSession(false);
-    res.say(steps[18]).shouldEndSession(false);
+    res.say(steps[10]).shouldEndSession(false);
   } else if (exit) {
       res.session('step', 1)
       res.say("Hey, If you want to review a step, just say step followed by the step number you'd like to hear. You can say continue to start over.").shouldEndSession(false);
-    } else if (step == 17) { 
+    } else if (step == 9) { 
        res.session('step', 1);
-       res.say("Okay, last step " + step + ". " + steps[step] +  " Gratzi! Goodbye!").shouldEndSession(true);
-    } else if (step == 18) {
+       res.say("Okay, last step " + step + ". " + steps[step] +  " Okay! Goodbye!").shouldEndSession(true);
+    } else if (step == 10) {
       res.say(steps[step]).shouldEndSession(false);
       res.session('step', 1);
       } else if (morethanseven){
-        if (persstep == 18) {
+        if (persstep == 10) {
           persstep = 1;
     } else if (persstep == 0 || !(+req.session('step'))){
            persstep = 1; 
                     }
       res.session('step', persstep)
-      res.say("Whoa, there are only 17 steps in this recipe. Please say step and choose a step between 1 and 17, or say continue and I'll try to pick up where we left off.").shouldEndSession(false);
+      res.say("Whoa, there are only 9 steps in this recipe. Please say step and choose a step between 1 and 9, or say continue and I'll try to pick up where we left off.").shouldEndSession(false);
     } else if (screwingwithme){
         res.say("There are no negatives when it comes to cupcakes, so I'm really not sure what to do with the negative step number you've given me. Why not try again, but this time, give me the word step followed by a positive step number. Or say continue to let me take you to where all the cupcake-y goodness is!").shouldEndSession(false);
         res.session('step', persstep);
@@ -116,12 +122,12 @@ if (slotstep && slotstep > 0 && slotstep < 18 && parseFloat(slotstep) == parseIn
         res.say("Decimals? Really? Cake comes in fractional slices, not decimals. Do try again, but this time, please give me the word step followed by a step number using whole numbers, and only whole numbers, or say continue to go on to the next step.").shouldEndSession(false);
         res.session('step', persstep);
     } else if (garbage){
-       if (persstep > 0 && persstep < 18) {
+       if (persstep > 0 && persstep < 10) {
         // persstep += 1;
-         res.say("I'm sorry, I did not understand what you were trying to say there. Please say the word step and choose a step number between 1 and 17, or say continue and I'll start from where I think we left off.").shouldEndSession(false);
+         res.say("I'm sorry, I did not understand what you were trying to say there. Please say the word step and choose a step number between 1 and 9, or say continue and I'll start from where I think we left off.").shouldEndSession(false);
          res.session('step', persstep);
          } else { 
-         res.say("I'm sorry, I did not understand what you were trying to say there, Please try again. Say step and choose a step number between 1 and 17, or say begin and I'll start from the beginning.").shouldEndSession(false);
+         res.say("I'm sorry, I did not understand what you were trying to say there, Please try again. Say step and choose a step number between 1 and 9, or say begin and I'll start from the beginning.").shouldEndSession(false);
          res.session('step', 1);
          }
       } else {
@@ -143,26 +149,26 @@ alexaApp.intent('StepContinue', {
   console.log("persstep= " + persstep + ", slotstep = " + slotstep); 
   
 //Intro block 3
- if (persstep > 0 && persstep < 18 ){
+ if (persstep > 0 && persstep < 10 ){
    var step = persstep;
    //for lower down the road //if step = 7 then res.say or end session. or set res.saybsection to...somethjng else  or set turuthiness to a varuable 
- } else if ( persstep == 18 || persstep > 18) {
+ } else if ( persstep == 10 || persstep > 10) {
    var exit = 1;
  } else if (persstep == 0) {
-   var step = 18;
+   var step = 10;
  }  else { var didntunderstanderror = 1 }       
   
   if (didntunderstanderror){
     res.session('step', 1)
     //res.say("Oh my, this is embarrassing, but I've lost count of where we were stepwise. You can say begin to start at the beginning, or step followed by the step number you'd like to resume, or say stop to exit.").shouldEndSession(false);
-   res.say(steps[18]).shouldEndSession(false);
+   res.say(steps[10]).shouldEndSession(false);
   } else if (exit) {
       res.session('step', 1)
       res.say("Hey, If you want to review a step, just say step followed by the step number you'd like to hear.").shouldEndSession(false);
-    } else if (step == 17) { 
+    } else if (step == 9) { 
        res.session('step', 1);
-       res.say("Okay, last step, step " + step + ". " + steps[step] +  " Gratzi! Goodbye!").shouldEndSession(true);
-    } else if (step == 18) {
+       res.say("Okay, last step, step " + step + ". " + steps[step] +  " Thanks! Goodbye!").shouldEndSession(true);
+    } else if (step == 10) {
       res.say(steps[step]).shouldEndSession(false);
       res.session('step', 1);
     } else {
@@ -180,7 +186,7 @@ alexaApp.intent("AMAZON.HelpIntent", {
   "slots": {} },
   function(request, response) {
     
-var HELP_MESSAGE = "Say continue to proceed to the next step, or specify a step by saying step followed by a step number between 1 and 17.  Follow the instructions and further prompts or say stop to exit at any time. And remember, pizza is fun!";
+var HELP_MESSAGE = "Say continue to proceed to the next step, or specify a step by saying step followed by a step number between 1 and 9.  Follow the instructions and further prompts or say stop to exit at any time. And remember, baking is fun!";
     response.say(HELP_MESSAGE).shouldEndSession(false);
   }
  );
