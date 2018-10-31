@@ -33,7 +33,7 @@ app.set("view engine", "ejs");
 var steps = {
 10 : 'Ok! let\'s start making that Mongolian Beef! When you\'re ready for the first step, Say continue!',
   1 : 'First, you\'ll need to gather some vegetable oil, 1/2 teaspoon ginger, 1 tablespoon garlic, 1/2 cup soy sauce, 1/2 cup water, 3/4 cup dark brown sugar, 1 pound flank steak, 1 yellow onion, and 2 large green onions.',
-  2 : 'Slice the beef thin and cut the yellow onion into petals. Cook with a bit of oil in a medium saucepan. Set aside when done.',C
+  2 : 'Slice the beef thin and cut the yellow onion into petals. Cook with a bit of oil in a medium saucepan. Set aside when done.',
   3: 'Make the sauce by heating 2 teaspoons of vegetable oil over medium low heat in the same pan. Don’t let the oil get too hot.',
   4: 'Add ginger and garlic to the pan and quickly add the soy sauce and water before the garlic scorches.',
   5: 'Dissolve the brown sugar in the sauce, then raise the heat to medium and boil the sauce for 2 to 3 minutes or until the sauce thickens.',
