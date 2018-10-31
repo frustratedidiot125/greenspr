@@ -31,7 +31,7 @@ app.set("view engine", "ejs");
 //TODO: The items below this comment need your attention.
 //=========================================================================================================================================
 var steps = {
-10 : 'Hi there! I can teach you how to make an authentic-ish, single-serving, cupcake that could ready to eat in slightly over a minute! Just say continue to begin!',
+10 : 'Hi there! I can teach you how to make an authentic, single-serving, cupcake that could be ready to eat in slightly over a minute! Just say continue to begin!',
   1 : 'First, you\'ll need to gather the following ingredients. 1/4  cup all-purpose flour, 2 tablespoon unsweetened cocoa powder, 1/4 teaspoon baking powder, 2 to 3 tablespoons granulated sugar, 1/8 teaspoon salt, 1/4 cup plus 1 tablespoon milk, 2 tablespoon vegetable oil, and either 1 tablespoon hazelnut chocolate spread or mini chocolate chips.',
 
   2 : 'Next, you\'ll need some basic kitchen hardware. grab a whisk or a fork if no whisk can be found, a medium sized Bowl, a Microwave safe mug, larger is better, a section of paper towel or a large microwave safe plate, and make sure you\'ve got a working microwave.',
@@ -50,7 +50,7 @@ alexaApp.launch(function(req, res) {
 
   
  // res.session('persstep', 0); //maybe we want to put that or some variation of this somewhere else like in the intent. We also never  figured out the repeat function but the hell with that.
-  var prompt = "Hi there! I can teach you how to make an authentic-ish, single-serving, cupcake that could ready to eat in slightly over a minute! Just say continue to begin! If you've been here before, I'll try to pick up where we left off.  If you want to start from a particular step, just say the word step, followed by the step number. And you can say stop at any time to exit. ";
+  var prompt = "Hi there! I can teach you how to make an authentic, single-serving, cupcake that could be ready to eat in slightly over a minute! Just say continue to begin! If you've been here before, I'll try to pick up where we left off.  If you want to start from a particular step, just say the word step, followed by the step number. You can say stop at any time to exit. ";
   res.say(prompt).reprompt(prompt).shouldEndSession(false);
 });
 
