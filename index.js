@@ -31,16 +31,16 @@ app.set("view engine", "ejs");
 //TODO: The items below this comment need your attention.
 //=========================================================================================================================================
 var steps = {
-10 : 'Ok! let\'s start making some improvised french toast! When you\'re ready for the first step, Say continue!',
-  1 : 'First, you\'ll need to gather 4 eggs, 1/4 cup heavy cream, 2 teaspoons of vanilla extract, a  few shakes of cinnamon sugar, syrup, and 4 cups of nilla wafers minis.',  
-  2 : 'Beat the eggs.',
-  3: 'Mix in and whisk heavy cream, vanilla, and sugar.',
-  4: 'Arrange the nillas in a few flat layers in a baking dish.',
-  5: 'Pour the egg mixture over the nillas. Top them with a shake of cinnamon sugar.',
-  6: 'Preheat your oven to 350 degrees fahrenheit while the nilla wafers soak.',
-  7: 'After an appropriate amount of preheating time, place the baking dish in the oven.',
-  8: 'Monitor the dish and remove once the egg has set. It should fluff up a bit.', 
-  9: 'Allow the dish to cool a bit and you\'re ready to serve your toastless vanilla french toast. Enjoy!' 
+10 : 'Ok! let\'s start making that Mongolian Beef! When you\'re ready for the first step, Say continue!',
+  1 : 'First, you\'ll need to gather some vegetable oil, 1/2 teaspoon ginger, 1 tablespoon garlic, 1/2 cup soy sauce, 1/2 cup water, 3/4 cup dark brown sugar, 1 pound flank steak, 1 yellow onion, and 2 large green onions.',
+  2 : 'Slice the beef thin and cut the yellow onion into petals. Cook with a bit of oil in a medium saucepan. Set aside when done.',C
+  3: 'Make the sauce by heating 2 teaspoons of vegetable oil over medium low heat in the same pan. Don’t let the oil get too hot.',
+  4: 'Add ginger and garlic to the pan and quickly add the soy sauce and water before the garlic scorches.',
+  5: 'Dissolve the brown sugar in the sauce, then raise the heat to medium and boil the sauce for 2 to 3 minutes or until the sauce thickens.',
+  7: 'Remove from heat, add the beef back in, and give it a good toss.',
+  6: 'Optionally, add in chili paste or sauce for additional taste.',
+  8: 'Plate beef with rice, top with green onions.', 
+  9: 'Allow the dish to cool slightly and serve. Enjoy!' 
    };
   
 
@@ -49,7 +49,7 @@ alexaApp.launch(function(req, res) {
 
   
  // res.session('persstep', 0); //maybe we want to put that or some variation of this somewhere else like in the intent. We also never  figured out the repeat function but the hell with that.
-  var prompt = "Hi there! I can teach you how to make an improvised vanilla french toast, if you find yourself all out of toast. Just say continue to begin! If you've been here before, I'll try to pick up where we left off.  If you want to start from a particular step, just say the word step, followed by the step number. You can say stop at any time to exit. ";
+  var prompt = "Hi there! I can teach you how to make an pretty decent mongolian beef dinner. It\'s a bit involved, but worth the effort. Just say continue to begin! If you've been here before, I'll try to pick up where we left off.  If you want to start from a particular step, just say the word step, followed by the step number. You can say stop at any time to exit. ";
   res.say(prompt).reprompt(prompt).shouldEndSession(false);
 });
 
@@ -115,10 +115,10 @@ if (slotstep && slotstep > 0 && slotstep < 10 && parseFloat(slotstep) == parseIn
       res.session('step', persstep)
       res.say("Whoa, there are only 9 steps in this recipe. Please say step and choose a step between 1 and 9, or say continue and I'll try to pick up where we left off.").shouldEndSession(false);
     } else if (screwingwithme){
-        res.say("There are no negatives when it comes to toast, so I'm really not sure what to do with the negative step number you've given me. Why not try again, but this time, give me the word step followed by a positive step number. Or say continue to let me take you to where all the delicious goodness is!").shouldEndSession(false);
+        res.say("There are no negatives when it comes to food, so I'm really not sure what to do with the negative step number you've given me. Why not try again, but this time, give me the word step followed by a positive step number. Or say continue to let me take you to where all the delicious goodness is!").shouldEndSession(false);
         res.session('step', persstep);
       } else if (needinteger){
-        res.say("Decimals? Really? Toast comes in single slices, not decimals. Do try again, but this time, please give me the word step followed by a step number using whole numbers, and only whole numbers, or say continue to go on to the next step.").shouldEndSession(false);
+        res.say("Decimals? Really? Food comes in single slices, not decimals. Do try again, but this time, please give me the word step followed by a step number using whole numbers, and only whole numbers, or say continue to go on to the next step.").shouldEndSession(false);
         res.session('step', persstep);
     } else if (garbage){
        if (persstep > 0 && persstep < 10) {
@@ -185,7 +185,7 @@ alexaApp.intent("AMAZON.HelpIntent", {
   "slots": {} },
   function(request, response) {
     
-var HELP_MESSAGE = "Say continue to proceed to the next step, or specify a step by saying step followed by a step number between 1 and 9.  Follow the instructions and further prompts or say stop to exit at any time. And remember, baking is fun!";
+var HELP_MESSAGE = "Say continue to proceed to the next step, or specify a step by saying step followed by a step number between 1 and 9.  Follow the instructions and further prompts or say stop to exit at any time. And remember, cooking is fun!";
     response.say(HELP_MESSAGE).shouldEndSession(false);
   }
  );
