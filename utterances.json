@@ -1,0 +1,245 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "pizza pie",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "StepContinue",
+                    "slots": [],
+                    "samples": [
+                        "begin",
+                        "continue",
+                        "next step",
+                        "next"
+                    ]
+                },
+                {
+                    "name": "StepIntent",
+                    "slots": [
+                        {
+                            "name": "stepno",
+                            "type": "numba"
+                        }
+                    ],
+                    "samples": [
+                        "{stepno}",
+                        "step {stepno}",
+                        "go to {stepno}",
+                        "go to step {stepno}",
+                        "read step {stepno}",
+                        "start at step {stepno}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "numba",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "1"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "2"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "3"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "4"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "5"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "6"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "7"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "-1"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "0"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "8"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "9"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "10"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "11"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "12"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "13"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "14"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "15"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "16"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "17"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "-2"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "-3"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "-4"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "-5"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "-6"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "-7"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "-8"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "-9"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "-10"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "18"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "19"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "20"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "21"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "22"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "23"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "24"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "25"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "26"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "27"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
