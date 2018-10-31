@@ -33,22 +33,7 @@ app.set("view engine", "ejs");
 var steps = {
   18 : 'Hi! I can teach you how to make authentic-ish, Italian-style pizza at home! Just say continue to begin! ',
   1 : 'First, you\'ll need to gather the following ingredients. 1/4  cup all-purpose flour, 2 tablespoon unsweetened cocoa powder, 1/4 teaspoon baking powder, 2 to 3 tablespoons granulated sugar, 1/8 teaspoon salt, 1/4 cup plus 1 tablespoon milk, 2 tablespoon vegetable oil, and either 1 tablespoon hazelnut chocolate spread or mini chocolate chips.',
-  2 : 'Pour the warm water into the first mixing bowl. Sprinkle in the yeast and stir until it dissolves.',
-  3 : 'Place almost all of the flour on the table in a mound roughly the shape of a volcano, with a crater at the top.',
-  4 : 'Pour the yeast and warm water mix, from the first mixing bowl, into the flour crater, along with the salt and sugar.',
-  5 : 'Knead everything together for 10 to 15 minutes until the dough is smooth and elastic, keeping your table surface floured.',
-  6 : 'Grease up the second bowl with some olive oil and put the dough inside. Turn the dough around so the top is slightly oiled.',
-  7 : 'Cover the bowl and put the dough aside to let it rest and rise for at least four or five hours.',
-  8 : 'Preheat the oven to about 400 degrees Fahrenheit',
-  9 : 'Dump the dough out of the bowl and back onto the floured surface. Punch it down, getting rid of any bubbles. Divide the dough in half and let it rest for a few minutes.',
-  10 : 'Roll each section into a 12-inch disc, and set thickness based on how thick you want your crust to be.',
-  11 : 'Transfer the dough onto the oiled pizza pan or baking sheet.',
-  12 : 'add tomato sauce, and Brush the edges of the crust with a little bit of olive oil.',
-  13 : 'Bake each pizza for about 10 minutes, and remove from the oven.',
-  14 : 'Add mozzarella cheese, sliced or grated, on top, as well as any other toppings.',
-  15 : 'Put the pizzas back in the oven and bake until the bottom of the crusts are browned and the cheese is melted.',
-  16 : 'Remove your pizzas from the oven, and garnish with a few basil leaves.',
-  17 : 'Make sure your pizzas have cooled enough to safely handle, then serve, and enjoy!' 
+  2 : '
    };
   
 
