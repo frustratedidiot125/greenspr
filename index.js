@@ -31,14 +31,14 @@ app.set("view engine", "ejs");
 //TODO: The items below this comment need your attention.
 //=========================================================================================================================================
 var steps = {
-8 : 'Ok! let\'s start making that fish! When you\'re ready for the first step, Say continue!',
-  1 : 'First, you\'ll need 4 slices of fish, whitefish, trout, salmon, or halibut. salt, to taste, garlic powder, for sprinkling, paprika, for sprinkling, and lemon wedges, for garnish.',
-  2 : 'Sprinkle fish lightly with salt on all sides.',
-  3: 'Sprinkle with garlic powder and paprika.',
-  4: 'Refrigerate for about half an hour.',
-  5: 'Cover and microwave on high for 8–9 minutes.',  
-  7: 'Serve warm, garnished with lemon wedges dipped in paprika.',
-  6: 'Let stand covered for 5 minutes.',
+8 : 'Ok! let\'s start making those Brussels Sprouts! When you\'re ready for the first step, Say continue!',
+  1 : 'First, get your ingredients together. You\'ll need 1 bunch of brussels sprouts, sliced thin, 2 tablespoons of olive oil, and salt and pepper for taste. Optionally, you can grab some grated hard cheese, gold raisins and sweetened cranberries, and assorted vegetables, sliced thin.',
+  2 : 'Wash and thinly slice the brussels sprouts.',
+  3: 'Toss the brussels sprouts and any optional vegetables, olive oil, and salt and pepper on a baking sheet',
+  4: 'Roast under in your broiler for 10-15 minutes. monitor closely.',
+  5: 'Remove from the oven when the edges just start to blacken',  
+  7: 'Serve warm, and enjoy!',
+  6: 'Mix in your optional ingredients.',
   //8: 'Plate beef with rice, top with green onions.', 
   //9: 'Allow the dish to cool slightly and serve. Enjoy!' 
    };
@@ -49,7 +49,7 @@ alexaApp.launch(function(req, res) {
 
   
  // res.session('persstep', 0); //maybe we want to put that or some variation of this somewhere else like in the intent. We also never  figured out the repeat function but the hell with that.
-  var prompt = "Hi there! I can teach you how to make baked fish in your very own microwave. Just say continue to begin! If you've been here before, I'll try to pick up where we left off.  If you want to start from a particular step, just say the word step, followed by the step number. You can say stop at any time to exit. ";
+  var prompt = "Hi there! I can teach you how to make brussel sprouts that actually taste alright. Just say continue to begin! If you've been here before, I'll try to pick up where we left off.  If you want to start from a particular step, just say the word step, followed by the step number. You can say stop at any time to exit. ";
   res.say(prompt).reprompt(prompt).shouldEndSession(false);
 });
 
