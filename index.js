@@ -65,7 +65,7 @@ alexaApp.intent('StepIntent', {
 if (slotstep && slotstep > 0 && slotstep < 10 && parseFloat(slotstep) == parseInt(slotstep) && !isNaN(slotstep)){
   var step = slotstep; 
     } else if (slotstep == 0){
-    var step = 1;
+    var step = 10;
     
     } else if (slotstep > 9 ){
    var morethanseven = 1; 
